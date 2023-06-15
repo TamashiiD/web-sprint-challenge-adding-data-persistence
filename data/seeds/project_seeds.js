@@ -4,36 +4,36 @@
  */
 
 exports.seed = async function (knex) {
-  await knex('project').truncate()
-  await knex('resource').truncate()
-  await knex('task').truncate()
-}
-
-exports.seed = async function (knex) {
+  await knex('project').del();
   await knex('project').insert([
     {
+      project_id: 1,
       project_name: 'admin',
       project_description: 'this is a test',
       project_completed: true
     },
     {
+      project_id: 2,
       project_name: 'tester',
       project_description: 'this is a test # 2',
       project_completed: false
     },
   ])
+  await knex('resource').del();
   await knex('resource').insert([
+    //its not truncating
     {
-      resource_name: 'this is a test name',
+      resource_name: 'gaba',
       resource_description: 'hoping this works',
-      
+
     },
     {
-      resource_name: 'this is a test name',
+      resource_name: 'lala',
       resource_description: 'hoping this seed exists',
-      
+
     },
   ])
+  await knex('task').del();
   await knex('task').insert([
     {
       task_description: "this is a test description",
