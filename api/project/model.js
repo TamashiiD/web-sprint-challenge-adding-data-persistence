@@ -6,10 +6,17 @@
 const db = require('../../data/dbConfig')
 
 
-async function getAll(){
-   await db('project')    
+function getAll(){
+   return db('project');   
+}
+
+function insert(body){
+return db('projects')
+.insert(body)
+.then(([id]) => get(id))
 }
 
 module.exports = {
-    getAll
+    getAll,
+    insert
 }

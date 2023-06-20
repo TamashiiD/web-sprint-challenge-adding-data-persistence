@@ -5,7 +5,7 @@
 
 exports.up = function (knex) {
     return Promise.all([
-        knex.schema.createTable('project', tbl => {
+        knex.schema.createTable('projects', tbl => {
         tbl.increments("project_id");
         tbl.string("project_name", 128).notNullable()
         tbl.string("project_description")
@@ -13,14 +13,14 @@ exports.up = function (knex) {
     }),
 
     knex.schema
-        .createTable('resource', (tbl) => {
+        .createTable('resources', (tbl) => {
             tbl.increments("resource_id");
             tbl.string("resource_name").notNullable().unique()
             tbl.string("resource_description")
         }),
 
     knex.schema
-        .createTable('task', (tbl) => {
+        .createTable('tasks', (tbl) => {
             tbl.increments("task_id")
             tbl.string("task_description").notNullable()
             tbl.string("task_notes")

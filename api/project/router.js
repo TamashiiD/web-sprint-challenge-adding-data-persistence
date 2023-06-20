@@ -14,5 +14,11 @@ Project.getAll()
 })
 })
 
+router.post('/', (req, res, next) => {
+    Project.insert(req.body)
+    .then(newproject => {
+        res.status(201).json(newproject)
+})
+})
 
 module.exports = router;

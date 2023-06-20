@@ -4,8 +4,8 @@
  */
 
 exports.seed = async function (knex) {
-  await knex('project').del();
-  await knex('project').insert([
+  await knex('projects').del();
+  await knex('projects').insert([
     {
       project_id: 1,
       project_name: 'admin',
@@ -19,8 +19,8 @@ exports.seed = async function (knex) {
       project_completed: false
     },
   ])
-  await knex('resource').del();
-  await knex('resource').insert([
+  await knex('resources').del();
+  await knex('resources').insert([
     //its not truncating
     {
       resource_name: 'gaba',
@@ -33,8 +33,8 @@ exports.seed = async function (knex) {
 
     },
   ])
-  await knex('task').del();
-  await knex('task').insert([
+  await knex('tasks').del();
+  await knex('tasks').insert([
     {
       task_description: "this is a test description",
       task_notes: "I havent really completed this",
