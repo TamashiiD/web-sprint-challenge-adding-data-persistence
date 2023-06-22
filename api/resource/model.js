@@ -5,11 +5,16 @@ function getAll(){
  return db('resources')
 }
 
-function insert(body){
-    return db('resource')
-    .insert(body)
-    .then(([id]) => get(id))
-    }
+function insert(resource) {
+    return db('resources')
+      .insert(resource)
+      .returning('*')
+      .then(([newResource]) => {
+        return newResource;
+      });
+  }
+
+
 module.exports = {
     getAll,
     insert

@@ -7,13 +7,13 @@ server.use(express.json())
 
 const projectRouter = require('./project/router') //this goes under the server
 const resourceRouter = require('./resource/router')
-const taskRouter = require('./project/router')
+const taskRouter = require('./task/router')
 
 
 //this connects the node server to the express routing system.
-server.use('/api/project' , projectRouter) 
-server.use('/api/resource' , resourceRouter)
-server.use('/api/task' , taskRouter) 
+server.use('/api/projects' , projectRouter) 
+server.use('/api/resources' , resourceRouter)
+server.use('/api/tasks' , taskRouter) 
 
 
 // DO YOUR MAGIC

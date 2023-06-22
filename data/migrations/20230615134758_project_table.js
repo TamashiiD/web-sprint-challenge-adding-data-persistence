@@ -25,7 +25,8 @@ exports.up = function (knex) {
             tbl.string("task_description").notNullable()
             tbl.string("task_notes")
             tbl.boolean("task_completed").defaultTo(false)
-            tbl.integer("project_id").references("project_id").inTable("project").notNullable()
+            tbl.integer("project_id").references("project_id").inTable("projects")
+            //.inTable("projects").notNullable()
 
         })
     ])
@@ -37,7 +38,7 @@ exports.up = function (knex) {
  */
 exports.down = async function (knex) {
     await knex.schema
-        .dropTableIfExists('task')
-        .dropTableIfExists('resource')
-        .dropTableIfExists('project')
+        .dropTableIfExists('tasks')
+        .dropTableIfExists('resources')
+        .dropTableIfExists('projects')
 };

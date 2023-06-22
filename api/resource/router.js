@@ -18,5 +18,8 @@ router.post('/', (req, res, next) => {
     .then(newresource => {
         res.status(201).json(newresource)
 })
+.catch(err=> {
+    next(err)
+})
 })
 module.exports = router;
