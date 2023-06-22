@@ -28,11 +28,11 @@ function get() {
 
 function insert(task) {
     return db('tasks')
-        .insert(task)
-        .then((task_id) => {
+        .insert(task) .then(([task_id]) => {
             return db('tasks')
-                .where(task_id, "task_id")
+                .where('task_id', task_id)
         })
+        .then(([task]) => ({ ...task, task_completed: task.task_completed ? true : false }));
 }
 
 
